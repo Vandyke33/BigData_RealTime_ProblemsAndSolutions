@@ -17,8 +17,8 @@ columns=final_rdd.collect()[0]
 print(columns)
 
 # skip header/columns from data 
-columns=final_rdd.first() #extract header for filter that row
-data = final_rdd.filter(lambda col: col != columns)   #filter out header
+skipline=final_rdd.first() #extract header for filter that row
+data = final_rdd.filter(lambda col: col != skipline)   #filter out header
 data.collect()
 
 data.toDF(columns).show()
